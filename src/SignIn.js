@@ -1,4 +1,4 @@
-import './App.css';
+import './SignIn.css';
 
 import { useState, useEffect } from 'react';
 
@@ -10,11 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-
 import TextField from '@mui/material/TextField';
-
 import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader';
 import { styled, alpha } from '@mui/material/styles';
 
 function getWindowDimensions() {
@@ -82,11 +79,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function App() {
+function SignIn() {
   const {height, width} = useWindowDimensions();
 
   return (
-    <div className='App' style={{ width: width, height: height }}>
+    <div className='SignIn' style={{ width: width, height: height }}>
       
       <AppBar position="static" style={{ backgroundColor: "#26A69A"}}>
         <Toolbar variant="dense">
@@ -143,4 +140,4 @@ function App() {
   );
 }
 
-export default App;
+export default SignIn;
