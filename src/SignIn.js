@@ -11,8 +11,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import TextField from '@mui/material/TextField';
-import Card from '@mui/material/Card'
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 import { styled, alpha } from '@mui/material/styles';
+import { withStyles } from '@mui/styles'
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -79,6 +81,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const StyledButton = withStyles({
+  root: {
+    backgroundColor: "#26A69A",
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: "#26A69A",
+      color: '#fff',
+  },
+}})(Button);
+
 function SignIn() {
   const {height, width} = useWindowDimensions();
 
@@ -131,8 +143,12 @@ function SignIn() {
           >
             <br></br>
             Sign In
-            <TextField fullWidth label="username" variant="standard" />
-            <TextField fullWidth label="password" variant="standard" />
+            <TextField fullWidth label="username" variant="standard" color="success"/>
+            <TextField fullWidth label="password" variant="standard" color="success"/>
+
+            <StyledButton fullWidth variant="contained" sx={ { borderRadius: 28 } }>
+              Sign In!
+            </StyledButton>
           </Card>
         </Grid>   
       </Grid> 

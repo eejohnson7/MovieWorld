@@ -6,3 +6,8 @@
   height: 65vh;
   width: 50vh;
 }
+
+
+.MuiButton.Mui-selected {
+  color: #26A69A
+}
