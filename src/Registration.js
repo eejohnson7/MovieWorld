@@ -7,69 +7,22 @@ import Card from '@mui/material/Card';
 import "./styles.css";
 
 function Registration() {
-
-    // States for registration
-    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [pass, setPass] = useState('');
 
-    // States for checking the errors
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
-
-    // Handling the name change
-    const handleName = (e) => {
-        setName(e.target.value);
-        setSubmitted(false);
-    };
-
-    // Handling the email change
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-        setSubmitted(false);
-    };
-
-    // Handling the password change
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-        setSubmitted(false);
-    };
-
-    // Handling the form submission
+    // handling the form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name === '' || email === '' || password === '') {
-        setError(true);
-        } else {
-        setSubmitted(true);
-        setError(false);
+        if (username === '' || email === '' || pass === '') {
+            alert("Please enter all fields!");
         }
-    };
+        else {
+            alert(username + " registered! You will now be redirected to sign in.");
+            //TODO: post to db
+            window.location.href = "/";
 
-    // Showing success message
-    const successMessage = () => {
-        return (
-        <div
-            className="success"
-            style={{
-            display: submitted ? '' : 'none',
-            }}>
-            <h1>User {name} successfully registered!!</h1>
-        </div>
-        );
-    };
-
-    // Showing error message if error is true
-    const errorMessage = () => {
-        return (
-        <div
-            className="error"
-            style={{
-            display: error ? '' : 'none',
-            }}>
-            <h1>Please enter all the fields</h1>
-        </div>
-        );
+        }
     };
 
     return (
@@ -80,26 +33,31 @@ function Registration() {
             justify="center"
         >
             <Card className="login-form" sx={{ height: 300, width: 400 }}>
-                <div className="title">MovieWorld</div>
+                <div className="title">Registration</div>
                 <div>
-                    <form onSubmit={handleSubmit}>
-                        <label className="label">Name:</label>
-                        <input onChange={handleName} className="input" value={name} type="text" />
+                    <div className="input-container">
+                        <label className="label">Username:</label>
+                        <input required onChange={(e) => setUsername(e.target.value)} type="text" />
+                    </div>
     
+                    <div className="input-container">
                         <label className="label">Email:</label>
-                        <input onChange={handleEmail} className="input" value={email} type="email" />
+                        <input required onChange={(e) => setEmail(e.target.value)} type="text" />
+                    </div>
     
+                    <div className="input-container">
                         <label className="label">Password:</label>
-                        <input onChange={handlePassword} className="input" value={password} type="password" />
+                        <input required onChange={(e) => setPass(e.target.value)} type="text" />
+                    </div>
+                    <br></br>
 
-                        <Grid container
-                            direction="column"
-                            alignItems="center"
-                            justify="center"
-                        >
-                            <Button variant="contained" sx={{ backgroundColor: "#26A69A"}} onClick={handleSubmit}>Submit</Button>
-                        </Grid>
-                    </form>
+                    <Grid container
+                        direction="column"
+                        alignItems="center"
+                        justify="center"
+                    >
+                        <Button variant="contained" sx={{ backgroundColor: "#26A69A"}} onClick={handleSubmit}>Submit</Button>
+                    </Grid>
                 </div>
             </Card>
         </Grid>

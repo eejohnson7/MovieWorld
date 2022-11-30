@@ -7,7 +7,7 @@ import Card from '@mui/material/Card';
 import "./styles.css";
 
 function Login() {
-    const [uname, setUname] = useState("");
+    const [username, setUsername] = useState("");
     const [pass, setPass] = useState("");
 
     const [errorMessages, setErrorMessages] = useState([]);
@@ -26,7 +26,7 @@ function Login() {
     ];
 
     const errors = {
-        uname: "invalid username",
+        username: "invalid username",
         pass: "invalid password"
     };
 
@@ -35,7 +35,7 @@ function Login() {
         alert("clicked");
 
         // Find user login info
-        const userData = database.find((user) => user.username === uname.value);
+        const userData = database.find((user) => user.username === username.value);
 
         // Compare user info
         if (userData) {
@@ -50,7 +50,7 @@ function Login() {
         } 
         else {
         // Username not found
-            setErrorMessages({ name: "uname", message: errors.uname });
+            setErrorMessages({ name: "username", message: errors.username });
         }
     };
 
@@ -66,11 +66,11 @@ function Login() {
                     <div>
                         <div className="input-container">
                             <label className="label">Username:</label>
-                            <input type="text" name="uname" required onChange={(e) => setUname(e.target.value)}/>
+                            <input type="text" required onChange={(e) => setUsername(e.target.value)}/>
                         </div>
                         <div className="input-container">
                             <label className="label">Password:</label>
-                            <input type="password" name="pass" required onChange={(e) => setPass(e.target.value)}/>
+                            <input type="password" required onChange={(e) => setPass(e.target.value)}/>
                         </div>
                         <br></br>
 
