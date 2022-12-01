@@ -19,7 +19,7 @@ function Movies(){
         "year": 2020
     }
     const actorNameData = ["actor1", "actor2", "actor3"];
-    
+
     const [title, setTitle] = useState("");
     const [director, setDirector] = useState("");
     const [year, setYear] = useState(0);
