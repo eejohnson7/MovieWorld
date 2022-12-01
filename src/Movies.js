@@ -1,17 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import MovieCard from "./MovieCard";
+import Grid from '@mui/material/Grid';
 
-import './background.css';
+import MovieCard from "./Components/MovieCard";
+import SearchAppBar from "./Components/SearchAppBar";
+import './styles.css';
+
+const userId = parseInt(window.location.href.substring(29));
 
 function Movies(){
-    const title = "The Guardians of the Galaxy: Holiday Special";
-    const img = "https://www.themoviedb.org/t/p/original/8dqXyslZ2hv49Oiob9UjlGSHSTR.jpg";
-    const genre = "Action";
-    
+    const [listOfMovies, setListOfMovies] = useState([]);
+
+    const movieData = [
+        {
+            "id": 1,
+            "title": "The Guardians of the Galaxy: Holiday Special",
+            "img": "https://www.themoviedb.org/t/p/original/8dqXyslZ2hv49Oiob9UjlGSHSTR.jpg",
+            "genre": "action"
+        },
+        {
+            "id": 1,
+            "title": "The Guardians of the Galaxy: Holiday Special",
+            "img": "https://www.themoviedb.org/t/p/original/8dqXyslZ2hv49Oiob9UjlGSHSTR.jpg",
+            "genre": "action"
+        },
+    ]
+
+    useEffect (() => {
+        //TODO: get all movie data from db 
+        
+        setListOfMovies(movieData);
+    }, [])
+
     return(
-        <div className="page">
-            <MovieCard title={title} img={img} genre={genre}/>
+        <div className="movie-search">
+            <Grid>
+                <SearchAppBar/>
+                <br></br>
+                <Grid container spacing={4} paddingLeft={3}>
+                    {listOfMovies.map((movie) => {
+                        return (
+                            <Grid item>
+                                <MovieCard userId={userId} id={movie.id.toString()} title={movie.title} img={movie.img} genre={movie.genre}/>
+                            </Grid>
+                        );
+                    })}
+                </Grid>
+            </Grid>
         </div>
     );
 }

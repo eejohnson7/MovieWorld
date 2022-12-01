@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 
-import './background.css';
+import './styles.css';
+
+const id = parseInt(window.location.href.substring(35));
 
 function UserProfile () {
-    //const [username, setUsername] = useState("");
-    //const [email, setEmail] = useState("");
-    //const [favMovies, setFavMovies] = useState([]);
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [favMovies, setFavMovies] = useState([]);
+    const [movieTitles, setMovieTitles] = useState([]);
 
-    const username = "user1";
-    const email = "user1@gmail.com";
-    const favMovies = ["movie1", "movie2", "movie3", "movie4", "movie5"];
+    const userData = {
+        'username': 'user1',
+        'email': 'user1@gmail.com',
+        'fav_movies': [1, 2, 3]
+    }
+    const movieTitleData = ["The Guardians of the Galaxy: Holiday Special", "The Guardians of the Galaxy: Holiday Special"];
+
+    useEffect(() => {
+        //TODO: get user from db given user id
+
+        setUsername(userData.username);
+        setEmail(userData.email);
+        setFavMovies(userData.fav_movies);
+    }, [])
+
+    useEffect(() => {
+        //TODO: get movie titles given movie ids
+        
+        setMovieTitles(movieTitleData);
+    })
 
     const handleClick = () => {
-        window.location.href = "/movies";
+        window.location.href = "/movies/" + id;
     }
 
     return(
-        <div className="background">
+        <div className="user-profile">
             <Grid container spacing={2}>
                 <Grid item xs={15}>
                     <h1 style={{ color: 'white', paddingLeft: '20px'}}>Welcome to MovieWorld {username}!</h1>
                 </Grid>
 
-                <Grid container 
-                    spacing={2} 
-                    direction="column"
-                    alignItems="center"
-                    justify="center"
-                >
+                <Grid container spacing={2} direction="column" alignItems="center" justify="center">
                     <Grid item>
                         <Card sx={{ height: 200, width: 400 }}>
                             <h1 style={{ color: '#00796B', paddingLeft: '25px' }}>Your Profile Information</h1>
@@ -42,17 +57,14 @@ function UserProfile () {
                     <Grid item>
                         <Card sx={{ height: 390, width: 400 }}>
                             <h1 style={{ color: '#00796B', paddingLeft: '50px'}}>Your Favorite Movies</h1>
-                            <h2 style={{ color: '#26A69A', paddingLeft: '40px' }}>1: {favMovies[0]}</h2>
-                            <h2 style={{ color: '#26A69A', paddingLeft: '40px' }}>2: {favMovies[1]}</h2>
-                            <h2 style={{ color: '#26A69A', paddingLeft: '40px' }}>3: {favMovies[2]}</h2>
-                            <h2 style={{ color: '#26A69A', paddingLeft: '40px' }}>4: {favMovies[3]}</h2>
-                            <h2 style={{ color: '#26A69A', paddingLeft: '40px' }}>5: {favMovies[4]}</h2>
+                            <h4 style={{ color: '#26A69A', paddingLeft: '40px' }}>1: {movieTitles[0]}</h4>
+                            <h4 style={{ color: '#26A69A', paddingLeft: '40px' }}>2: {movieTitles[1]}</h4>
+                            <h4 style={{ color: '#26A69A', paddingLeft: '40px' }}>3: {movieTitles[2]}</h4>
+                            <h4 style={{ color: '#26A69A', paddingLeft: '40px' }}>4: {movieTitles[3]}</h4>
+                            <h4 style={{ color: '#26A69A', paddingLeft: '40px' }}>5: {movieTitles[4]}</h4>
+                            <br></br><br></br>
 
-                            <Grid container
-                                direction="column"
-                                alignItems="center"
-                                justify="center"
-                            >
+                            <Grid container direction="column" alignItems="center" justify="center">
                                 <Button variant="contained" sx={{ backgroundColor: "#00796B"}} onClick={handleClick}>Browse Movies</Button>
                             </Grid>
                         </Card>

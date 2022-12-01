@@ -60,3 +60,21 @@ input[type="submit"]:hover {
   gap: 8px;
   margin: 10px;
 }
+
+.user-profile {
+  font-family: sans-serif;
+  display: flex;
+  gap: 20px;
+  height: 800px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #26A69A;
+}
+
+.movie-search {
+  font-family: sans-serif;
+  display: flex;
+  gap: 20px;
+  height: 3000px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #80CBC4;
+}

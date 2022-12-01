@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Heart from "react-heart";
 
 import Card from '@mui/material/Card';
@@ -8,17 +8,27 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-function MovieCard({title, img, genre}){
+function MovieCard({userId, id, title, img, genre}){
     const [active, setActive] = useState(false);
+    const [favMovies, setFavMovies] = useState("");
+
+    const favMovieData = [1, 2, 3];
 
     const clickMovie = () => {
-        window.location.href ='/movie-profile/' + title
+        window.location.href ='/movie-profile/' + userId + '/' + id;
     }
+
+    useEffect(() => {
+        //TODO: get user's favorite movies from db given userId
+
+        setFavMovies(favMovieData);
+    }, [])
 
     const favMovie = () => {
         if(!active){
-            alert('movie added to favs');
-            //TODO: add movie to user's favorites
+            favMovies.push(parseInt(id));
+
+            //TODO: add movie to user's favorites in db given userId
         }
         setActive(!active);
     }

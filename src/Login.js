@@ -8,49 +8,30 @@ import "./styles.css";
 
 function Login() {
     const [username, setUsername] = useState("");
-    const [pass, setPass] = useState("");
+    const [password, setPassword] = useState("");
+    const [id, setId] = useState(1);
 
-    const [errorMessages, setErrorMessages] = useState([]);
-    const [isSubmitted, setIsSubmitted] = useState();
-
-    // User Login info
-    const database = [
-        {
-        username: "user1",
-        password: "pass1"
-        },
-        {
-        username: "user2",
-        password: "pass2"
-        }
-    ];
-
-    const errors = {
-        username: "invalid username",
-        pass: "invalid password"
-    };
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
-        alert("clicked");
 
-        // Find user login info
-        const userData = database.find((user) => user.username === username.value);
-
-        // Compare user info
-        if (userData) {
-        if (userData.password !== pass.value) {
-            // Invalid password
-            setErrorMessages({ name: "pass", message: errors.pass });
-        } 
-        else {
-            setIsSubmitted(true);
-            console.log("logging in");
+        //TODO: get user from db given username
+        const userData = {
+            "id": 1,
+            "username": "user1",
+            "password": "pass1"
         }
+
+        if (userData) {
+            if (userData.password !== password) {
+                alert("INVALID PASSWORD");
+            } 
+            else {
+                setId(userData.id);
+                window.location.href = '/user-profile/' + id.toString();
+            }
         } 
         else {
-        // Username not found
-            setErrorMessages({ name: "username", message: errors.username });
+            alert("USER NOT FOUND");
         }
     };
 
@@ -70,7 +51,7 @@ function Login() {
                         </div>
                         <div className="input-container">
                             <label className="label">Password:</label>
-                            <input type="password" required onChange={(e) => setPass(e.target.value)}/>
+                            <input type="password" required onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                         <br></br>
 

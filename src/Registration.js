@@ -9,18 +9,18 @@ import "./styles.css";
 function Registration() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [password, setPassword] = useState('');
 
-    // handling the form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (username === '' || email === '' || pass === '') {
+        if (username === '' || email === '' || password === '') {
             alert("Please enter all fields!");
         }
         else {
-            alert(username + " registered! You will now be redirected to sign in.");
             //TODO: post to db
             window.location.href = "/";
+
+            alert(username + " registered! You will now be redirected to sign in.");
 
         }
     };
@@ -47,7 +47,7 @@ function Registration() {
     
                     <div className="input-container">
                         <label className="label">Password:</label>
-                        <input required onChange={(e) => setPass(e.target.value)} type="text" />
+                        <input required onChange={(e) => setPassword(e.target.value)} type="text" />
                     </div>
                     <br></br>
 
