@@ -5,6 +5,7 @@ import Login from "./Login";
 import Registration from "./Registration";
 import UserProfile from "./UserProfile";
 import Movies from "./Movies";
+import MovieProfile from "./MovieProfile";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/movie-profile/:title" element={<MovieProfile />} />
       </Routes>
     </BrowserRouter>
   );
