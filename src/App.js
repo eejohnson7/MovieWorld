@@ -11,11 +11,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/user-profile/:userId" element={<UserProfile />} />
-        <Route path="/movies/:userId" element={<Movies />} />
-        <Route path="/movie-profile/:userId/:movieId" element={<MovieProfile />} />
+        <Route path="/movieworld" element={<Login />} />
+        <Route path="/movieworld/registration" element={<Registration />} />
+        <Route path="/movieworld/user-profile/:userId" element={<UserProfile />} />
+        <Route path="/movieworld/movies/:userId" element={<Movies />} />
+        <Route path="/movieworld/movie-profile/:userId/:movieId" element={<MovieProfile />} />
       </Routes>
     </BrowserRouter>
   );

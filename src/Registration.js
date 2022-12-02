@@ -18,7 +18,7 @@ function Registration() {
         }
         else {
             //TODO: post to db
-            window.location.href = "/";
+            window.location.href = "/movieworld";
 
             alert(username + " registered! You will now be redirected to sign in.");
 

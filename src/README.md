@@ -9,3 +9,6 @@ servlets:
 6. retrieve top 10 -> find top 10 most popoular movies from db
 7. retrieve fav movies -> get user's fav movie from db given userId
 
+npm install
+npm install react-dom react
+npm run build

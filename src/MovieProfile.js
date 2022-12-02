@@ -7,8 +7,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-const userId = parseInt(window.location.href.charAt(36));
-const movieId = parseInt(window.location.href.charAt(38));
+const userId = parseInt(window.location.href.charAt(46));
+const movieId = parseInt(window.location.href.charAt(48));
+console.log(userId);
 
 function Movies(){
     const movieData = {

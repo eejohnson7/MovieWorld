@@ -27,7 +27,7 @@ function Login() {
             } 
             else {
                 setId(userData.id);
-                window.location.href = '/user-profile/' +userId.toString();
+                window.location.href = 'movieworld/user-profile/' + userId.toString();
             }
         } 
         else {
@@ -63,7 +63,7 @@ function Login() {
                             <Button variant="contained" sx={{ backgroundColor: "#26A69A"}} onClick={handleSubmit}>Submit</Button>
                             <br></br>
                             <a style={{ color:"#00796B" }}>New to MovieWorld?</a>
-                            <a href="/registration" style={{ color:"#00796B" }}>Register</a>
+                            <a href="movieworld/registration" style={{ color:"#00796B" }}>Register</a>
                         </Grid>
                     </div>
                 </Card>
