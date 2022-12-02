@@ -8,14 +8,15 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-function MovieCard({userId, id, title, img, genre}){
+function MovieCard({userId, movieId, title, img, genre}){
     const [active, setActive] = useState(false);
     const [favMovies, setFavMovies] = useState("");
 
     const favMovieData = [1, 2, 3];
+    console.log(movieId);
 
     const clickMovie = () => {
-        window.location.href ='/movie-profile/' + userId + '/' + id;
+        window.location.href ='/movie-profile/' + userId + '/' + movieId;
     }
 
     useEffect(() => {
@@ -26,7 +27,7 @@ function MovieCard({userId, id, title, img, genre}){
 
     const favMovie = () => {
         if(!active){
-            favMovies.push(parseInt(id));
+            favMovies.push(parseInt(movieId));
 
             //TODO: add movie to user's favorites in db given userId
         }

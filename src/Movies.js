@@ -41,7 +41,7 @@ function Movies(){
                     {listOfMovies.map((movie) => {
                         return (
                             <Grid item>
-                                <MovieCard userId={userId} id={movie.id.toString()} title={movie.title} img={movie.img} genre={movie.genre}/>
+                                <MovieCard userId={userId} movieId={movie.id.toString()} title={movie.title} img={movie.img} genre={movie.genre}/>
                             </Grid>
                         );
                     })}

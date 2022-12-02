@@ -9,7 +9,7 @@ import "./styles.css";
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [id, setId] = useState(1);
+    const [userId, setId] = useState(1);
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -27,7 +27,7 @@ function Login() {
             } 
             else {
                 setId(userData.id);
-                window.location.href = '/user-profile/' + id.toString();
+                window.location.href = '/user-profile/' +userId.toString();
             }
         } 
         else {
