@@ -4,8 +4,11 @@ import './styles.css';
 
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
-const id = parseInt(window.location.href.substring(36));
+const userId = parseInt(window.location.href.charAt(36));
+const movieId = parseInt(window.location.href.charAt(38));
 
 function Movies(){
     const movieData = {
@@ -47,15 +50,46 @@ function Movies(){
     })
 
     return(
-        <div className="page">
-            <Card>
-                <CardMedia
-                    component="img"
-                    height="350"
-                    image={img}
-                    alt="movie"
-                />
-            </Card>
+        <div className="user-profile">
+            <Grid container direction="column" spacing={10} justify="center" alignItems="center">
+                <Grid item>
+                    <Typography color="white" paddingTop={3} variant="h3">{title}</Typography>
+                </Grid>
+
+                <Grid item>
+                    <Grid container direction="row" spacing={10} alignItems="center">
+                        <Grid item>
+                            <Card>
+                                <CardMedia
+                                    component="img"
+                                    height="600"
+                                    image={img}
+                                    alt="movie"
+                                />
+                            </Card>
+                        </Grid>
+                        <Grid item>
+                            <Grid container spacing={5} direction="column" alignItems="center" justify="center">
+                                <Grid item>
+                                    <Card  sx={{height: 150, width:400 }}>
+                                        <Typography color="#00695C" variant="h4">Top Actors</Typography>
+                                        <Typography color="#00897B" variant="subtitle1">{actorNameData[0]}</Typography>
+                                        <Typography color="#00897B" variant="subtitle1">{actorNameData[1]}</Typography>
+                                        <Typography color="#00897B" variant="subtitle1">{actorNameData[2]}</Typography>
+                                    </Card>
+                                </Grid>
+                                <Grid item>
+                                    <Card  sx={{height: 250, width:400 }}>
+                                        <Typography color="#00695C" variant="h4">Description</Typography>
+                                        <br></br>
+                                        <Typography color="#00897B">{description}</Typography>
+                                    </Card>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         </div>
     );
 }
