@@ -6,8 +6,7 @@ import MovieCard from "./Components/MovieCard";
 import SearchAppBar from "./Components/SearchAppBar";
 import './styles.css';
 
-const userId = parseInt(window.location.href.substring(39));
-console.log(userId);
+const userId = parseInt(window.location.href.substring(40));
 
 function Movies(){
     const [listOfMovies, setListOfMovies] = useState([]);

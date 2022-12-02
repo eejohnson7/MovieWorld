@@ -16,7 +16,7 @@ function MovieCard({userId, movieId, title, img, genre}){
     console.log(movieId);
 
     const clickMovie = () => {
-        window.location.href ='movieworld/movie-profile/' + userId + '/' + movieId;
+        window.location.href ='/movieworld/movie-profile/' + userId + '/' + movieId;
     }
 
     useEffect(() => {

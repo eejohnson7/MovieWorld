@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 import './styles.css';
 
-const userId = parseInt(window.location.href.substring(45));
+const userId = parseInt(window.location.href.substring(46));
 
 function UserProfile () {
     const [username, setUsername] = useState("");
@@ -36,7 +36,7 @@ function UserProfile () {
     })
 
     const handleClick = () => {
-        window.location.href = "movieworld/movies/" + userId;
+        window.location.href = "/movieworld/movies/" + userId;
     }
 
     return(
